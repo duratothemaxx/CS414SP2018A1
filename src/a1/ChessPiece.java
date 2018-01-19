@@ -26,14 +26,19 @@ public abstract class ChessPiece {
 	// There is no need for a setColor method 
 	// because a piece cannot change color.
 	public Color getColor() {
-		return null;
+		return this.color;
 		
 	}
 	
 	// This method returns the position of the piece in the format
 	// single letter (a..h) followed by a single digit (1..8).
 	public String getPosition() {
-		return null;
+		// rows are numbers and colums are letters
+		// row 1 = index 0, etc
+		// col a = index 0, etc
+		String position = "";
+		position += (char) (97 + column) + row;
+		return position;
 		
 	}
 	
@@ -82,6 +87,18 @@ public abstract class ChessPiece {
 	
 
 	public static void main(String[] args) {
+		System.out.println("\u2654   white king\n" + 
+				"\u2655   white queen\n" + 
+				"\u2656   white rook\n" + 
+				"\u2657   white bishop\n" + 
+				"\u2658   white knight\n" + 
+				"\u2659   white pawn\n" + 
+				"\u265A   black king\n" + 
+				"\u265B   black queen\n" + 
+				"\u265C   black rook\n" + 
+				"\u265D   black bishop\n" + 
+				"\u265E   black knight\n" + 
+				"\u265F   black pawn\n");
 
 	}
 
