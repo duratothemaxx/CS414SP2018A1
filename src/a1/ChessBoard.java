@@ -3,10 +3,17 @@ package a1;
 public class ChessBoard {
 
 	private ChessPiece[][] board;
+	private static final int BOARDSIZE = 8;
 
 	// initializes the board to an 8X8 array with all
 	// empty squares. An empty square is null
 	ChessBoard() {
+
+		for (int i = 0; i < BOARDSIZE; i++) {
+			for (int j = 0; j < BOARDSIZE; j++) {
+				board[i][j] = null;
+			}
+		}
 
 	}
 
