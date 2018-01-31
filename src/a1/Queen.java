@@ -12,13 +12,20 @@ public class Queen extends ChessPiece {
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return null;
+
+		if (this.color == Color.BLACK)
+			return "\u265B";
+		else
+			return "\u2655";
 	}
 
 	@Override
-	public ArrayList<String> legalMoves() {
-		// TODO Auto-generated method stub
-		return null;
+	public ArrayList<String> legalMoves() {		
+		// in this implementation, Queens don't move
+		
+		ArrayList<String> moves = new ArrayList<>();		
+		
+		return moves;
 	}
 
 }

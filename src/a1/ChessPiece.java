@@ -19,6 +19,9 @@ public abstract class ChessPiece {
 
 	// This constructor sets the board and color attributes
 	public ChessPiece(ChessBoard board, Color color) {
+		
+		this.board = board;
+		this.color = color;
 
 	}
 	
