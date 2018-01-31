@@ -6,19 +6,33 @@ public class Bishop extends ChessPiece {
 
 	public Bishop(ChessBoard board, Color color) {
 		super(board, color);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return null;
+
+		if (this.color == Color.BLACK)
+			return "\u265D";
+		else
+			return "\u2657";
 	}
 
 	@Override
 	public ArrayList<String> legalMoves() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		ArrayList<String> moves = new ArrayList<String>();
+		
+		// Bishops need to follow 1 rule:
+		// 1. they can capture and move diagonally
+		
+		if (this.color == Color.WHITE) {
+
+		} else {
+
+		}
+		
+		
+		return moves;
 	}
 
 }

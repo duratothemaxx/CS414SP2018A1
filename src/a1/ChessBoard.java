@@ -1,5 +1,7 @@
 package a1;
 
+import a1.ChessPiece.Color;
+
 public class ChessBoard {
 
 	private ChessPiece[][] board;
@@ -8,6 +10,9 @@ public class ChessBoard {
 	// initializes the board to an 8X8 array with all
 	// empty squares. An empty square is null
 	ChessBoard() {
+		
+		board = new ChessPiece[BOARDSIZE][BOARDSIZE];
+		
 
 		for (int i = 0; i < BOARDSIZE; i++) {
 			for (int j = 0; j < BOARDSIZE; j++) {
@@ -23,6 +28,89 @@ public class ChessBoard {
 	// pieces, and call placePiece below to place the newly
 	// constructed pieces in the right position.
 	public void initialize() {
+		
+		//creating all the Pawns
+		Pawn whitePawnA = new Pawn(this, Color.WHITE);
+		Pawn whitePawnB = new Pawn(this, Color.WHITE);
+		Pawn whitePawnC = new Pawn(this, Color.WHITE);
+		Pawn whitePawnD = new Pawn(this, Color.WHITE);
+		Pawn whitePawnE = new Pawn(this, Color.WHITE);
+		Pawn whitePawnF = new Pawn(this, Color.WHITE);
+		Pawn whitePawnG = new Pawn(this, Color.WHITE);
+		Pawn whitePawnH = new Pawn(this, Color.WHITE);
+		
+		Pawn blackPawnA = new Pawn(this, Color.BLACK);
+		Pawn blackPawnB = new Pawn(this, Color.BLACK);
+		Pawn blackPawnC = new Pawn(this, Color.BLACK);
+		Pawn blackPawnD = new Pawn(this, Color.BLACK);
+		Pawn blackPawnE = new Pawn(this, Color.BLACK);
+		Pawn blackPawnF = new Pawn(this, Color.BLACK);
+		Pawn blackPawnG = new Pawn(this, Color.BLACK);
+		Pawn blackPawnH = new Pawn(this, Color.BLACK);
+		
+		// bishops are always bound the the square color they start on
+		Bishop whiteBishopW = new Bishop(this, Color.WHITE);
+		Bishop whiteBishopB = new Bishop(this, Color.WHITE);
+		Bishop blackBishopW = new Bishop(this, Color.BLACK);
+		Bishop blackBishopB = new Bishop(this, Color.BLACK);
+		
+		// Knights can't move in the game
+		Knight whiteKnightW = new Knight(this, Color.WHITE);
+		Knight whiteKnightB = new Knight(this, Color.WHITE);
+		Knight blackKnightW = new Knight(this, Color.BLACK);
+		Knight blackKnightB = new Knight(this, Color.BLACK);
+		
+		// rooks have the ability to be on any square on the board
+		Rook whiteRookW = new Rook(this, Color.WHITE);
+		Rook whiteRookB = new Rook(this, Color.WHITE);
+		Rook blackRookW = new Rook(this, Color.BLACK);
+		Rook blackRookB = new Rook(this, Color.BLACK);
+		
+		Queen whiteQueen = new Queen(this, Color.WHITE);
+		Queen blackQueen = new Queen(this, Color.BLACK);
+		
+		King whiteKing = new King(this, Color.WHITE);
+		King blackKing = new King(this, Color.BLACK);
+		
+		
+		// no need for error checking on the initial board set up
+		placePiece(whitePawnA, "a2");
+		placePiece(whitePawnB, "b2");
+		placePiece(whitePawnC, "c2");
+		placePiece(whitePawnD, "d2");
+		placePiece(whitePawnE, "e2");
+		placePiece(whitePawnF, "f2");
+		placePiece(whitePawnG, "g2");
+		placePiece(whitePawnH, "h2");
+		
+		placePiece(blackPawnA, "a7");
+		placePiece(blackPawnB, "b7");
+		placePiece(blackPawnC, "c7");
+		placePiece(blackPawnD, "d7");
+		placePiece(blackPawnE, "e7");
+		placePiece(blackPawnF, "f7");
+		placePiece(blackPawnG, "g7");
+		placePiece(blackPawnH, "h7");
+		
+		placePiece(whiteBishopW, "f1");
+		placePiece(whiteBishopB, "c1");
+		placePiece(blackBishopW, "c8");
+		placePiece(blackBishopB, "f8");
+		
+		placePiece(whiteKnightW, "b1");
+		placePiece(whiteKnightB, "g1");
+		placePiece(blackKnightW, "g8");
+		placePiece(blackKnightB, "b8");
+		
+		placePiece(whiteRookW, "h1");
+		placePiece(whiteRookB, "a1");
+		placePiece(blackRookW, "a8");
+		placePiece(blackRookB, "h8");
+		
+		placePiece(whiteQueen, "d1");
+		placePiece(whiteKing, "e1");
+		placePiece(blackQueen, "d8");
+		placePiece(blackKing, "e8");
 
 	}
 
@@ -34,7 +122,16 @@ public class ChessBoard {
 	// characters or represents a position outside the board, the exception is
 	// thrown.
 	public ChessPiece getPiece(String position) throws IllegalPositionException {
-		return null;
+		
+		int rank = position.charAt(1) - 49;
+		int file = position.charAt(0) - 97;
+		
+		if(rank < 0 || rank > 7 || file < 0 || file > 7)
+			throw new IllegalPositionException("Position out of bounds!");
+		
+		
+		
+		return board[rank][file];
 
 	}
 
@@ -47,7 +144,18 @@ public class ChessBoard {
 	// call an appropriate method in the ChessPiece class
 	// (i.e., setPosition) to set the piece's position.
 	public boolean placePiece(ChessPiece piece, String position) {
-		return false;
+		// position a1 = [0][0], e1 = [0][4], d8 = [7][3], h8 = [7][7]
+		// ascii 'a' = 97, 'h' = 104, '1' = 49, '8' = 56.
+		
+		int rank = position.charAt(1) - 49;
+		int file = position.charAt(0) - 97;
+		
+		if(rank < 0 || rank > 7 || file < 0 || file > 7)
+			return false;
+		
+		board[rank][file] = piece;		
+		
+		return true;
 
 	}
 
@@ -119,6 +227,13 @@ public class ChessBoard {
 	}
 
 	public static void main(String[] args) throws IllegalMoveException {
+		
+//		System.out.println( (char) 97);
+//		System.out.println( '1' - 49);
+//		System.out.println( (int) '1');
+		
+		
+		
 		ChessBoard board = new ChessBoard();
 		board.initialize();
 		System.out.println(board);
