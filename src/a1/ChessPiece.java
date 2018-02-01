@@ -39,10 +39,8 @@ public abstract class ChessPiece {
 		// rows are numbers and colums are letters
 		// row 1 = index 0, etc
 		// col a = index 0, etc
-		String position = "";
-		position += (char) (97 + column) + row;
-		return position;
-		
+		String position = "" + (char) (column+98) + "" + (char) (row+50);
+		return position;		
 	}
 	
 	// This method sets the position of the piece to the appropriate 
@@ -51,7 +49,11 @@ public abstract class ChessPiece {
 	// If the position is illegal for any of the two reasons 
 	// mentioned earlier, throw the stated exception. 
 	public void setPosition(String position) throws IllegalPositionException {
+		row = position.charAt(1)-50;
+		column = position.charAt(0)-98;
 		
+		if(row < 0 || row > 7 || column < 0 || column > 7)
+			throw new IllegalPositionException("Position '" + position + "' is not valid");		
 	}
 	
 	// This method will be implemented in the concrete subclasses
@@ -102,7 +104,5 @@ public abstract class ChessPiece {
 				"\u265D   black bishop\n" + 
 				"\u265E   black knight\n" + 
 				"\u265F   black pawn\n");
-
 	}
-
 }

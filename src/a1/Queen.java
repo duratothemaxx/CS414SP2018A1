@@ -6,12 +6,10 @@ public class Queen extends ChessPiece {
 
 	public Queen(ChessBoard board, Color color) {
 		super(board, color);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
 
 		if (this.color == Color.BLACK)
 			return "\u265B";
@@ -20,12 +18,11 @@ public class Queen extends ChessPiece {
 	}
 
 	@Override
-	public ArrayList<String> legalMoves() {		
+	public ArrayList<String> legalMoves() {
 		// in this implementation, Queens don't move
-		
-		ArrayList<String> moves = new ArrayList<>();		
-		
+
+		ArrayList<String> moves = new ArrayList<>();
+
 		return moves;
 	}
-
 }

@@ -21,8 +21,33 @@ public class King extends ChessPiece {
 
 	@Override
 	public ArrayList<String> legalMoves() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+		ArrayList<String> moves = new ArrayList<String>();
 
+		// the king can move any direction, one square at a time
+		// up to 8 possible moves
+
+		// get the current position and create a list of legal moves
+		// they may not be valid when ChessBoard.move() is called, but
+		// that method will handle the exceptions as needed
+		int currentRank = this.getPosition().charAt(1) - 49;
+		int currentFile = this.getPosition().charAt(0) - 97;
+
+		for (int i = currentRank - 1; i <= currentRank + 1; i++) {
+			for (int j = currentFile - 1; j <= currentFile + 1; j++) {
+
+				// the current position can't be a valid move
+				if (i == currentRank && j == currentFile) {
+					continue;
+				}
+
+				char rank = (char) (i + 49);
+				char file = (char) (j + 97);
+				String move = "" + file + "" + rank;
+				moves.add(move);
+
+			}
+		}
+
+		return moves;
+	}
 }

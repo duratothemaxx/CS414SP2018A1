@@ -1,44 +1,36 @@
 package a1;
 
 import static org.junit.Assert.*;
-
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
+import a1.ChessPiece.Color;
+
 public class KingTest {
-
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-	}
-
-	@AfterClass
-	public static void tearDownAfterClass() throws Exception {
-	}
+	
+	private ChessBoard board;
+	private King whiteKing;
 
 	@Before
 	public void setUp() throws Exception {
-	}
-
-	@After
-	public void tearDown() throws Exception {
-	}
-
-	@Test
-	public void testToString() {
-		fail("Not yet implemented");
+		board = new ChessBoard();
+		whiteKing = new King(board, Color.WHITE);
+		board.placePiece(whiteKing, "b2");		
 	}
 
 	@Test
-	public void testLegalMoves() {
-		fail("Not yet implemented");
+	public void testLegalMoves() {		
+		assertTrue(whiteKing.legalMoves().contains("a1"));
+		assertTrue(whiteKing.legalMoves().contains("c3"));		
 	}
-
+	
 	@Test
-	public void testKing() {
-		fail("Not yet implemented");
+	public void testGetPosition() {
+		
 	}
-
+	
+	@Test
+	public void testSetPosition() {
+		
+	}
 }

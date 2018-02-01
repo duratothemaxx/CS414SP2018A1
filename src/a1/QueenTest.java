@@ -2,43 +2,31 @@ package a1;
 
 import static org.junit.Assert.*;
 
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
+
+import a1.ChessPiece.Color;
 
 public class QueenTest {
 
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-	}
-
-	@AfterClass
-	public static void tearDownAfterClass() throws Exception {
-	}
+	private Queen blackQueen;
+	private Queen whiteQueen;
 
 	@Before
 	public void setUp() throws Exception {
-	}
-
-	@After
-	public void tearDown() throws Exception {
-	}
-
-	@Test
-	public void testToString() {
-		fail("Not yet implemented");
+		blackQueen = new Queen(null, Color.BLACK);
+		whiteQueen = new Queen(null, Color.BLACK);
 	}
 
 	@Test
 	public void testLegalMoves() {
-		fail("Not yet implemented");
+		assertTrue("empty moves list - queen", blackQueen.legalMoves().isEmpty());
+		assertTrue("empty moves list - queen", whiteQueen.legalMoves().isEmpty());
 	}
 
 	@Test
 	public void testQueen() {
-		fail("Not yet implemented");
+		assertTrue(blackQueen.color == Color.BLACK);
+		assertFalse(whiteQueen.color == Color.WHITE);
 	}
-
 }
