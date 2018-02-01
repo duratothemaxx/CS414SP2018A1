@@ -19,7 +19,8 @@ public class Rook extends ChessPiece {
 
 	@Override
 	public ArrayList<String> legalMoves() {
-		return null;
+		ArrayList<String> moves = new ArrayList<String>();
+		
+		return moves;
 	}
-
 }

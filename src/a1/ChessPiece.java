@@ -29,8 +29,7 @@ public abstract class ChessPiece {
 	// There is no need for a setColor method 
 	// because a piece cannot change color.
 	public Color getColor() {
-		return this.color;
-		
+		return this.color;		
 	}
 	
 	// This method returns the position of the piece in the format

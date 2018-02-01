@@ -2,33 +2,21 @@ package a1;
 
 import static org.junit.Assert.*;
 
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
+import a1.ChessPiece.Color;
+
 public class RookTest {
-
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-	}
-
-	@AfterClass
-	public static void tearDownAfterClass() throws Exception {
-	}
+	
+	private ChessBoard board;
+	private Rook rook;
 
 	@Before
 	public void setUp() throws Exception {
-	}
-
-	@After
-	public void tearDown() throws Exception {
-	}
-
-	@Test
-	public void testToString() {
-		fail("Not yet implemented");
+		board = new ChessBoard();
+		rook = new Rook(board, Color.BLACK);
+		board.placePiece(rook, "a1");
 	}
 
 	@Test
@@ -37,8 +25,7 @@ public class RookTest {
 	}
 
 	@Test
-	public void testRook() {
-		fail("Not yet implemented");
+	public void testGetPosition() {
+		assertTrue(rook.getPosition().equals("a1"));
 	}
-
 }

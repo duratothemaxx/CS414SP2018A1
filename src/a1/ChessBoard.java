@@ -11,15 +11,13 @@ public class ChessBoard {
 	// empty squares. An empty square is null
 	ChessBoard() {
 		
-		board = new ChessPiece[BOARDSIZE][BOARDSIZE];
-		
+		board = new ChessPiece[BOARDSIZE][BOARDSIZE];		
 
 		for (int i = 0; i < BOARDSIZE; i++) {
 			for (int j = 0; j < BOARDSIZE; j++) {
 				board[i][j] = null;
 			}
 		}
-
 	}
 
 	// This method initializes the board to the standard chess
@@ -111,7 +109,6 @@ public class ChessBoard {
 		placePiece(whiteKing, "e1");
 		placePiece(blackQueen, "d8");
 		placePiece(blackKing, "e8");
-
 	}
 
 	// This method returns the chess piece at a given position.
@@ -127,12 +124,9 @@ public class ChessBoard {
 		int file = position.charAt(0) - 97;
 		
 		if(rank < 0 || rank > 7 || file < 0 || file > 7)
-			throw new IllegalPositionException("Position out of bounds!");
-		
-		
+			throw new IllegalPositionException("Position out of bounds!");		
 		
 		return board[rank][file];
-
 	}
 
 	// This method tries to place the given piece at a given position,
@@ -156,7 +150,6 @@ public class ChessBoard {
 		board[rank][file] = piece;		
 		
 		return true;
-
 	}
 
 	// This method checks if moving the piece from the fromPosition to

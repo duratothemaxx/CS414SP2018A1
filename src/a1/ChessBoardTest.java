@@ -3,28 +3,18 @@ package a1;
 import static org.junit.Assert.*;
 
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 import a1.ChessPiece.Color;
 
 public class ChessBoardTest {
 
-//	@BeforeClass
-//	public static void setUpBeforeClass() throws Exception {
-//	}
-//
-//	@AfterClass
-//	public static void tearDownAfterClass() throws Exception {
-//	}
-	
-	ChessBoard board = new ChessBoard();
+	ChessBoard board;
 
 	@Before
 	public void setUp() throws Exception {
-		
+		board = new ChessBoard();
 	}
 
 	@After
@@ -46,14 +36,13 @@ public class ChessBoardTest {
 			board.getPiece("a7").equals(blackPawn);
 			board.getPiece("e2").equals(whitePawn);
 		} catch (IllegalPositionException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}		
+		}
 	}
 
 	@Test
 	public void testGetPiece() {
-		
+		fail("Not yet implemented");
 	}
 
 	@Test
@@ -75,5 +64,4 @@ public class ChessBoardTest {
 	public void testMain() {
 		fail("Not yet implemented");
 	}
-
 }

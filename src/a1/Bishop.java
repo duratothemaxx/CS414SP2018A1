@@ -29,8 +29,7 @@ public class Bishop extends ChessPiece {
 
 		} else {
 
-		}
-		
+		}		
 		
 		return moves;
 	}
